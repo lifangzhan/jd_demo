@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+        }
+        .box > div {
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+            border-right: 2px solid red;
+            border-bottom: 2px solid red;
+            box-sizing: border-box;
+            float: left;
+        }
+
+
+        /*超小屏幕	（移动设备）	 	 w<768px*/
+                                    /*小屏设备    768px-992px 	 768 <= w <992*/
+        /*中等屏幕    992px-1200px     992 =< w <1200*/
+        /*宽屏设备    1200px以上      w>=1200*/
+        @media screen and (max-width: 1200px) {
+            .box > div {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            .box > div {
+                width: 50%;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .box > div {
+                width: 33.33%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .box > div {
+                width: 25%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+</html>

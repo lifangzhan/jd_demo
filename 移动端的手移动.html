@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <style>
+        div {
+            margin: 0;
+            padding: 0;
+            width: 100px;
+            height: 100px;
+            background: -webkit-linear-gradient(right,blue,red);
+        }
+    </style>
+
+</head>
+
+<body>
+<div></div>
+<script>
+   var box = document.querySelector('div');
+   var startX,startY,moveX,moveY,endX = 0,endY = 0,boxX = 0,boxY = 0;
+    box.addEventListener('touchstart',function(e){
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+    });
+    box.addEventListener('touchmove', function (e) {
+        moveX = e.touches[0].clientX;
+        moveY = e.touches[0].clientY;
+
+        boxX = moveX - startX + endX;
+        boxY = moveY- startY + endY;
+        e.target.style.transform = "translate("+boxX+"px,"+boxY+"px)";
+
+    })
+    box.addEventListener('touchend',function(){
+        endX = boxX;
+        endY = boxY;
+    })
+</script>
+</body>
+</html>

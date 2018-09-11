@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    width: 100%;
+    height: 100%;
+}
+.ck_layout {
+    width: 100%;
+    height: 100%;
+}
+.ck_top {
+    height: 50px;
+    background-color: #eee;
+    width: 100%;
+    position: absolute;
+    border-bottom: 1px solid #ccc;
+}
+.ck_top a:first-child,
+.ck_top a:last-child {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    background: url("../images/jd-sprites.png");
+    background-size: 200px 200px;
+    background-origin: content-box;
+    background-clip: content-box;
+    padding: 14px;
+}
+.ck_top a:first-child {
+    left: 0;
+    background-position: -20px 0;
+}
+.ck_top a:last-child {
+    right: 0;
+    background-position: -60px 0;
+}
+
+.ck_searchBox {
+    width: 100%;
+    height: 100%;
+    padding: 0 60px;
+}
+.ck_searchBox input {
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.ck_contentBox {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    display: flex;
+}
+.ck_left {
+    width: 100px;
+    height: 100%;
+
+    position: relative;
+    overflow: hidden;
+}
+.ck_left ul {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.ck_left ul li {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+    background-color: #eee;
+}
+
+.ck_left ul li.current a {
+    background-color: #fff;
+    color: #e92322;
+    border-right: none;
+}
+
+.ck_left ul li a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    line-height: 50px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+
+.ck_right {
+    height: 100%;
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.ck_banner {
+    width: 100%;
+    display: block;
+}
+.ck_banner  img {
+    width: 100%;
+    display: block;
+}
+.ck_right h3 {
+    height: 30px;
+    padding-left: 10px;
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+}
+.ck_hotCategory {
+    /*padding-top: 15px;*/
+    flex-grow: 1;
+    overflow: hidden;
+
+    position: relative;
+}
+.ck_hotCategory ul {
+    width: 100%;
+    overflow: hidden;
+}
+.ck_hotCategory ul li {
+    float: left;
+    text-align: center;
+    width: 33.33%;
+}

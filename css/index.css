@@ -1,0 +1,249 @@
+.jd{
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    /*background-color: #ccc;*/
+    height: 1000px;
+}
+
+/*¶¥²¿ËÑË÷¿ò*/
+.top {
+    width: 100%;
+    max-width: 640px;
+    background-color: rgba(233,35,34,0);
+    height: 40px;
+    position: fixed;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.searchBox {
+    width: 100%;
+    height: 40px;
+    /*background-color: green;*/
+    padding-left: 76px;
+    padding-right: 50px;
+    color: #666;
+
+}
+.search {
+    width: 100%;
+    height: 30px;
+    margin-top: 5px;
+    /*background-color: yellow;*/
+    border-radius: 15px;
+    padding-left: 25px;
+}
+.searchBox::before{
+    content: '';
+    width: 24px;
+    height: 23px;
+    background: url("../images/jd-sprites.png") no-repeat -56px -108px;
+    background-size: 200px 200px;
+    position: absolute;
+    top: 8px;
+    left: 78px;
+}
+.logo {
+    width: 56px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: 7px;
+    background: url("../images/jd-sprites.png") no-repeat 0 -108px;
+    background-size: 200px 200px;
+}
+.login {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    color: #fff;
+}
+
+.banner {
+    width: 100%;
+    background-color: pink;
+    overflow: hidden;
+    position: relative;
+
+}
+.pictures {
+    width: 800%;
+    height: 100%;
+    position: relative;
+    left: 0;
+    top:0;
+}
+.pictures li {
+    width: 12.5%;
+    float: left;
+}
+.pictures li img {
+    width: 100%;
+    vertical-align: top;
+}
+.circle {
+    width: 128px;
+    height: 10px;
+    /*background-color: pink;*/
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.circle li {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    float: left;
+    margin-right: 6px;
+    cursor: pointer;
+}
+.circle li:last-child {
+    margin-right: 0;
+}
+.circle li.current {
+    background-color: #fff;
+}
+
+
+
+.nav {
+    width: 100%;
+    background-color: #fff;
+    font-size: 13px;
+    padding: 10px 0;
+    overflow: hidden;
+}
+.nav  ul li {
+    width: 25%;
+    float: left;
+    text-align: center;
+    margin-top: 5px;
+}
+.nav  ul img {
+    width: 39px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.product {
+    width: 100%;
+    position: relative;
+}
+
+
+
+.Handheld {
+    maargin-top: 10px;
+    width: 100%;
+    background-color: #fff;
+    margin-top: 15px;
+    line-height: 18px;
+}
+.Handheld-top {
+    width: 100%;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+
+}
+.more {
+    margin-right: 10px;
+}
+.time span{
+    width: 13px;
+    height: 18px;
+    background-color: #000;
+    color: #fff;
+}
+.time span:nth-child(3n) {
+    color: #000000;
+    background-color: #fff;
+}
+.clock {
+    width: 16px;
+    height: 20px;
+    margin-left: 10px;
+    background: url("../images/seckill-icon.png") no-repeat;
+    background-size: 16px 20px;
+    margin-top: 3px;
+}
+.f-red {
+    color: #e92322;
+    margin: 0 5px;
+}
+.HandheldPic {
+    width: 100%;
+}
+.HandheldPic ul {
+    width: 100%;
+    text-align: center;
+}
+.HandheldPic ul li {
+    width: 33.33%;
+    float: left;
+}
+.HandheldPic ul img {
+    width: 50%;
+}
+.superMarket {
+    margin-top: 10px;
+    line-height: 30px;
+    /*overflow: hidden;*/
+
+}
+.pTip {
+    padding-left: 30px;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+}
+.pTip h3 {
+    position: relative;
+    padding-left: 30px;
+}
+.pTip::before {
+    content: '';
+    width: 3px;
+    height: 12px;
+    background-color: #e92322;
+    position: absolute;
+    top: 10px;
+    left: 22px;
+}
+.pProduct a {
+    width: 50%;
+    display: block;
+}
+/*.pProduct a:first-child {*/
+    /*height: 100%;*/
+/*}*/
+/*.pProduct a:nth-child(2),*/
+/*.pProduct a:nth-child(3){*/
+    /*height: 50%;*/
+/*}*/
+.superMarket .pProduct a img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    vertical-align: top;
+}
+
+.b_border {
+    border-bottom: 1px solid #ccc;
+}
+.l_border {
+    border-left: 1px solid #ccc;
+}
+.r_border {
+    border-right: 1px solid #ccc;
+}

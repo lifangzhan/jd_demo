@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/index.css"/>
+    <script src="./js/zepto.js"></script>
+    <script src="./zepto-master/src/fx.js"></script>
+    <script src="./zepto-master/src/touch.js"></script>
+</head>
+<body>
+<div class="jd">
+    <div class="banner">
+        <ul class="pictures clearfix">
+            <li><a href="javascript:;"><img src="./uploads/l1.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="./uploads/l2.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="./uploads/l3.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="./uploads/l4.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="./uploads/l5.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="./uploads/l6.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="./uploads/l7.jpg" alt=""/></a></li>
+            <li><a href="javascript:;"><img src="./uploads/l8.jpg" alt=""/></a></li>
+        </ul>
+        <ol class="circle">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+</div>
+</body>
+<script>
+    //原生js
+  /*  window.onload = function () {
+        var banner = document.querySelector('.banner');
+        var circle = document.querySelector('.circle');
+        var cirs = circle.children;
+        var bannerWidth = banner.offsetWidth;
+
+        var pictures = banner.querySelector('.pictures');
+        var lis = pictures.querySelectorAll('li');
+
+        var first = lis[0];
+        var last = lis[lis.length-1];
+        pictures.appendChild(first.cloneNode(true));
+        pictures.insertBefore(last.cloneNode(true),first);
+
+        var lists = pictures.children;
+
+        pictures.style.width = bannerWidth * (lists.length) + 'px';
+
+        for (var i = 0; i < lists.length; i++) {
+            var li = lists[i];
+            li.style.width = bannerWidth + 'px';
+        }
+        pictures.style.left = -bannerWidth + 'px';
+
+        window.onresize = function () {
+            //当屏幕宽度变化的时候,改变ul和li的宽度
+            bannerWidth = banner.offsetWidth;
+            pictures.style.width = bannerWidth * lists.length + 'px';
+            for (var i = 0; i < lists.length; i++) {
+                var li = lists[i];
+                li.style.width = bannerWidth + 'px';
+            }
+            pictures.style.left = - bannerWidth + 'px';
+
+        }
+        //封装定时器
+        var index = 1;
+        var timerId;
+        var setInter = function () {
+            clearInterval(timerId);
+            timerId = setInterval(function () {
+                index++;
+                pictures.style.left = -bannerWidth * index + 'px';
+                pictures.style.transition = 'left 0.5s ease-in-out';
+                setTimeout(function () {
+                    if(index == lists.length-1) {
+                        index = 1;
+                        pictures.style.transition = 'none';
+                        pictures.style.left = -bannerWidth * index + 'px';
+                    }
+                    for (var i = 0; i < cirs.length; i++) {
+                        var cir = cirs[i];
+                        cir.classList.remove('current');
+                    }
+                    cirs[index-1].classList.add('current');
+                },500);
+
+            },2000)
+        }
+        setInter();
+
+        //手动轮播,touchstart,touchmove,touchend
+        var startX,moveX,distanceX;
+        pictures.addEventListener('touchstart',function(e){
+            clearInterval(timerId);
+            timerId = null;
+            startX = e.targetTouches[0].clientX;
+
+        })
+        pictures.addEventListener('touchmove', function (e) {
+            moveX = e.targetTouches[0].clientX;
+            distanceX = moveX - startX;
+            pictures.style.left = -index*bannerWidth + distanceX + 'px';
+        })
+        pictures.addEventListener('touchend',function () {
+            if(Math.abs(distanceX) >= (bannerWidth/2) ) {
+                if(distanceX > 0) {
+                    index --;
+                }else {
+                    index ++;
+                }
+                pictures.style.transition = 'left 0.5s';
+                pictures.style.left = -index*bannerWidth  + 'px';
+            }
+            else if(Math.abs(distanceX) > 0) {
+                pictures.style.transition = 'left 0.5s';
+                pictures.style.left = -index*bannerWidth  + 'px';
+            }
+
+        })
+        pictures.addEventListener('webkitTransitionEnd',function(){
+            if(index == lists.length - 1) {
+                index = 1;
+                pictures.style.transition = 'none';
+                pictures.style.left = -index * bannerWidth + 'px';
+
+            }else if(index == 0) {
+                index = lists.length - 2;
+                pictures.style.transition = 'none';
+                pictures.style.left = -index * bannerWidth + 'px';
+
+            }
+            for (var i = 0; i < cirs.length; i++) {
+                var cir = cirs[i];
+                cir.classList.remove('current');
+            }
+            cirs[index-1].classList.add('current');
+            setInter();
+        })
+
+
+    }*/
+
+    //使用zepto.js
+    $(function(){
+        var bannerWidth = $('.banner').width();
+        var pictures = $('.pictures');
+
+        var first = pictures.children()[0];
+        var last = pictures.children()[pictures.children().length-1];
+        pictures.append($(first).clone());
+        $(last).clone().insertBefore(first);
+
+        var lists = pictures.children();
+        var count = lists.length;
+        pictures.width(bannerWidth *count);
+        pictures.css('left',-bannerWidth);
+        lists.width(bannerWidth);
+
+        var index = 1;
+        $(window).on('resize', function () {
+            bannerWidth = $('.banner').width();
+            pictures.width(bannerWidth *count);
+            lists.width(bannerWidth);
+            pictures.css('left',-bannerWidth*index);
+        });
+        var circles = $('.circle').children();
+        //封装ul的移动位置
+        function animation() {
+            pictures.animate({'left':-bannerWidth*index},200,'ease-in-out',function(){
+                if(index == 0) {
+                    index = count - 2;
+                }else if(index == count -1) {
+                    index = 1;
+                }
+                pictures.css('left',-bannerWidth*index);
+                circles.removeClass('current').eq(index-1).addClass('current');
+            })
+        }
+
+        var timeId;
+        function startTime() {
+            clearInterval(timeId);
+            timeId = setInterval(function () {
+                index++;
+                animation();
+            },1000)
+        }
+        startTime();
+
+        pictures.on('swipeLeft', function () {
+            clearInterval(timeId);
+            index++;
+            timeId = null;
+            animation();
+            startTime();
+        })
+        pictures.on('swipeRight', function () {
+            clearInterval(timeId);
+            index--;
+            timeId = null;
+            animation();
+            startTime();
+        })
+
+    })
+</script>
+</html>

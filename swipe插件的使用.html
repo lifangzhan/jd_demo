@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .swipe {
+            overflow: hidden;
+            /*visibility: hidden;*/
+            position: relative;
+            width: 500px;
+        }
+        .swipe-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+        .swipe-wrap > li {
+            float:left;
+            width:100%;
+            position: relative;
+        }
+        .swipe-wrap > li img {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="swipe" id="slider">
+    <ul class="swipe-wrap">
+        <li><a href="javascript:;"><img src="./uploads/l1.jpg" alt=""/></a></li>
+        <li><a href="javascript:;"><img src="./uploads/l2.jpg" alt=""/></a></li>
+        <li><a href="javascript:;"><img src="./uploads/l3.jpg" alt=""/></a></li>
+        <li><a href="javascript:;"><img src="./uploads/l4.jpg" alt=""/></a></li>
+        <li><a href="javascript:;"><img src="./uploads/l5.jpg" alt=""/></a></li>
+        <li><a href="javascript:;"><img src="./uploads/l6.jpg" alt=""/></a></li>
+        <li><a href="javascript:;"><img src="./uploads/l7.jpg" alt=""/></a></li>
+        <li><a href="javascript:;"><img src="./uploads/l8.jpg" alt=""/></a></li>
+    </ul>
+</div>
+<script src="./js/swipe.js"></script>
+<script>
+    window.mySwipe = Swipe(document.getElementById('slider'),{
+        auto: 1000
+    });
+</script>
+</body>
+</html>
